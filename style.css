@@ -1,0 +1,437 @@
+/* UTILITIES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family:'Roboto';
+}
+  
+  a {
+    text-decoration: none;
+  }
+  
+  li {
+    list-style: none;
+  }
+
+/* NAVBAR STYLING STARTS */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s, opacity 0.3s; /* Ajoute une transition fluide */
+}
+
+.navbar.transparent {
+    background-color: rgba(0, 0, 0, 0.5); /* Opacité réduite */
+    opacity: 1;
+}
+
+.navbar-solid {
+    background-color: black; /* Couleur de fond solide */
+    opacity: 0.8;
+}
+  
+  .nav-links a {
+    color: white;
+  }
+  
+  /* LOGO */
+  .logo {
+    font-size: 32px;
+  }
+  
+  /* NAVBAR MENU */
+  .menu {
+    display: flex;
+    gap: 1em;
+    font-size: 18px;
+  }
+  
+  .menu li:hover {
+    background-color: rgb(78, 75, 75);
+    height: 60px;
+    border-radius: 5px;
+    transition: 0.3s ease;
+  }
+  
+  .menu li {
+    padding: 5px 14px;
+  }
+  
+  /* DROPDOWN MENU */
+  .services {
+    position: relative; 
+  }
+  
+  .dropdown {
+    background-color: rgb(78, 75, 75);
+    padding: 1em 0;
+    position: absolute; /*WITH RESPECT TO PARENT*/
+    display: none;
+    border-radius: 8px;
+    top: 35px;
+    z-index: 2;
+  }
+  
+  .dropdown li + li {
+    margin-top: 10px;
+  }
+  
+  .dropdown li {
+    padding: 0.5em 1em;
+    width: 8em;
+    text-align: center;
+  }
+  
+  .dropdown li:hover {
+    background-color: rgb(78, 75, 75);
+  }
+  
+  .services:hover .dropdown {
+    display: block;
+  }
+
+/* RESPONSIVE NAVBAR MENU STARTS */
+
+/* CHECKBOX HACK */
+
+input[type=checkbox] {
+    display: none;
+  } 
+  
+  /* HAMBURGER MENU */
+  .hamburger {
+    display: none;
+    font-size: 24px;
+    user-select: none;
+  }
+  
+  /* APPLYING MEDIA QUERIES */
+  @media (max-width: 768px) {
+   .menu {
+      display:none;
+      position: absolute;
+      background-color:black;
+      right: 0;
+      left: 0;
+      text-align: center;
+      padding: 16px 0;
+    }
+  
+    .menu li:hover {
+      display: inline-block;
+      background-color:rgb(78, 75, 75);
+      transition: 0.3s ease;
+    }
+  
+    .menu li + li {
+      margin-top: 12px;
+    }
+  
+    input[type=checkbox]:checked ~ .menu {
+      display: block;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+  
+    .dropdown {
+      left: 50%;
+      top: 30px;
+      transform: translateX(35%);
+    }
+  
+    .dropdown li:hover {
+      background-color: rgb(78, 75, 75);
+    }
+  }
+
+
+.center {
+    background-image: url(images/voyage-viticole-scaled.jpg);
+  background-size:cover;
+        -webkit-animation: slidein 50s;
+        animation: slidein 50s;
+
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+
+        -webkit-animation-direction: alternate;
+        animation-direction: alternate;              
+}
+
+@-webkit-keyframes slidein {
+from {background-position: top; background-size:3000px; }
+to {background-position: -100px 0px;background-size:2500px;}
+}
+
+@keyframes slidein {
+from {background-position: top;background-size:3000px; }
+to {background-position: -100px 0px;background-size:2500px;}
+
+}
+
+
+
+.center
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 3px;
+}
+
+
+/* ANIATION TEXTE h1*/
+
+h1 {
+    text-align:center;
+    color: #e6c068;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    font-family:'Roboto';
+    font-size:60px;
+    padding-top:40vh;
+    height:100vh;
+    overflow:hidden;
+    backface-visibility: hidden;
+    perspective: 3000;
+    transform: translate3d(0,0,0);
+}
+  
+main h1 div {
+    display:block;
+    overflow:hidden;
+    white-space:wrap;
+}
+  
+main h1 div:first-of-type {
+    animation: showup 20s ;
+}
+  
+main h1 div:last-of-type {
+    width:100%;
+    animation: reveal 20s infinite;
+}
+  
+main h1 div:last-of-type span {
+    margin-left:0px;
+    margin-right: 0px;
+    animation: slidein 20s infinite;
+}
+
+  @keyframes showup {
+      0% {opacity:0;}
+      20% {opacity:1;}
+      80% {opacity:1;}
+      100% {opacity:0;}
+  }
+  
+  @keyframes slidein {
+      0% { margin-left:-800px; }
+      20% { margin-left:-800px; }
+      35% { margin-left:0px; }
+      100% { margin-left:0px; }
+  }
+  
+  @keyframes reveal {
+      0% {opacity:0;width:0px;}
+      20% {opacity:1;width:0px;}
+      30% {width:355px;}
+      80% {opacity:1;}
+      100% {opacity:0;width:355px;}
+  }
+/*--SEVICE SECTION H2 ANIMATION--*/
+
+.services-section h2 {
+    font-size: 50px;
+    margin-bottom: 40px;
+    color: white;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    font-family: 'Roboto';
+    animation: fadeInUp 2s ease-in-out; /* Ajoutez l'animation ici */
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+  /* Styles for the cards Services Section */
+  .services-section {
+    margin: 0;
+    min-height: 100vh;
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column; /* Aligner les éléments verticalement */
+    align-items: center; /* Centrer horizontalement */
+    background-color:black;
+    text-align: center;
+}
+.services-carousel {
+    display: flex;
+    overflow-x: auto; /* Permet le défilement horizontal */
+    gap: 20px;
+    padding: 20px;
+    align-items: end; /* Aligner les éléments verticalement */
+}
+
+/* Scrollbar Styles 
+.services-carousel::-webkit-scrollbar {
+    width: 8px;
+}
+
+.services-carousel::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+.services-carousel::-webkit-scrollbar-track {
+    background-color: #f2f2f2;
+    border-radius: 4px;
+}*/
+
+.service-card {
+    display: grid;
+    border-radius: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    transition: 0.4s;
+    height: 600px;
+}
+
+.service-card > * {
+    grid-area: 1/1;
+    transition: 0.4s;
+}
+
+.service-card h3 {
+    display: grid;
+    align-items: end;
+    font-family: sans-serif;
+    font-size: 2.3rem;
+    font-weight: bold;
+    color: #0000;
+    padding: 0.75rem;
+    background: var(--c, #0009);
+    clip-path: inset(0 var(--_i, 100%) 0 0);
+    -webkit-mask:
+        linear-gradient(#000 0 0),
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    -webkit-mask-clip: text, padding-box;
+    margin: -1px;
+}
+
+.service-card:hover h3 {
+    --_i: 0%;
+}
+
+.service-card p {
+    font-size: 16px;
+    color: black;
+}
+
+.service-card img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transform-origin: center center;
+    transition: transform 0.4s ease-in-out;
+}
+
+.service-card:hover img {
+    transform: scale(1.2);
+}
+
+@supports not (-webkit-mask-clip: text) {
+    .service-card h3 {
+        -webkit-mask: none;
+        color: #fff;
+    }
+}
+
+  /* --- FOOTER-----*/
+
+  .footer{
+    background:black;
+    padding:30px 0px;
+    text-align:center;
+    }
+    
+    .footer .row{
+    width:100%;
+    margin:1% 0%;
+    padding:0.6% 0%;
+    color:gray;
+    font-size:0.8em;
+    }
+    
+    .footer .row a{
+    text-decoration:none;
+    color:gray;
+    transition:0.5s;
+    }
+    
+    .footer .row a:hover{
+    color:#fff;
+    }
+    
+    .footer .row ul{
+    width:100%;
+    }
+    
+    .footer .row ul li{
+    display:inline-block;
+    margin:0px 30px;
+    }
+    
+    .footer .row a i{
+    font-size:2em;
+    margin:0% 1%;
+    }
+    
+    @media (max-width:720px){
+    .footer{
+    text-align:left;
+    padding:5%;
+    }
+    .footer .row ul li{
+    display:block;
+    margin:10px 0px;
+    text-align:left;
+    }
+    .footer .row a i{
+    margin:0% 3%;
+    }
+    }
