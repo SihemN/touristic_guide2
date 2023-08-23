@@ -285,38 +285,27 @@ main h1 div:last-of-type span {
 }
 
   /* Styles for the cards Services Section */
+
   .services-section {
     margin: 0;
     min-height: 100vh;
     padding: 80px 0;
     display: flex;
-    flex-direction: column; /* Aligner les éléments verticalement */
-    align-items: center; /* Centrer horizontalement */
+    flex-direction: row; /* Aligner les éléments verticalement */
+    align-items: center; 
     background-color:black;
     text-align: center;
+    overflow-x: auto; /* défilement horizontal */
 }
 .services-carousel {
     display: flex;
-    overflow-x: auto; /* Permet le défilement horizontal */
-    gap: 20px;
+    height: 50rem;
+    gap: 1rem;
     padding: 20px;
-    align-items: end; /* Aligner les éléments verticalement */
+    align-items: center;
+    overflow-x: scroll; /* Utilisez "scroll" pour toujours afficher la barre de défilement */
+    white-space: wrap; /* Retour à la ligne des éléments */
 }
-
-/* Scrollbar Styles 
-.services-carousel::-webkit-scrollbar {
-    width: 8px;
-}
-
-.services-carousel::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 4px;
-}
-
-.services-carousel::-webkit-scrollbar-track {
-    background-color: #f2f2f2;
-    border-radius: 4px;
-}*/
 
 .service-card {
     display: grid;
@@ -326,6 +315,8 @@ main h1 div:last-of-type span {
     position: relative;
     transition: 0.4s;
     height: 600px;
+    width: 600px;
+    flex-shrink: 0; /* Empêche la réduction en largeur */
 }
 
 .service-card > * {
@@ -334,10 +325,10 @@ main h1 div:last-of-type span {
 }
 
 .service-card h3 {
-    display: grid;
+    display: flex;
     align-items: end;
-    font-family: sans-serif;
-    font-size: 2.3rem;
+    font-family:'Roboto';
+    font-size: 3rem;
     font-weight: bold;
     color: #0000;
     padding: 0.75rem;
@@ -356,21 +347,41 @@ main h1 div:last-of-type span {
 }
 
 .service-card p {
-    font-size: 16px;
-    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    background: var(--c, #0009);
+    clip-path: inset(0 var(--_i, 100%) 0 0);
+    -webkit-mask:
+        linear-gradient(#000 0 0),
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    -webkit-mask-clip: text, padding-box;
+    margin: -1px;
+}
+
+.service-card:hover p {
+    --_i: 0%;
 }
 
 .service-card img {
+    flex-direction: 1;
     width: 100%;
     height: 600px;
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
     transform-origin: center center;
     transition: transform 0.4s ease-in-out;
+   
 }
 
 .service-card:hover img {
+    flex: 5;
     transform: scale(1.2);
 }
 
@@ -378,6 +389,31 @@ main h1 div:last-of-type span {
     .service-card h3 {
         -webkit-mask: none;
         color: #fff;
+    }
+}
+/*---------- RESPONSIVE SERVICE CARDS STYLES--------*/
+
+@media (max-width: 768px) {
+    .services-section {
+        display: flex;
+        flex-direction: column;
+        padding: 50px 0;
+    }
+
+    .services-carousel {
+        flex-wrap: nowrap;
+        gap: 1rem;
+        justify-content: center;
+        padding: 20px 0;
+    }
+
+    .service-card {
+        width: calc(50% - 1rem);
+        height: auto;
+    }
+
+    .service-card img {
+        height: 300px;
     }
 }
 
