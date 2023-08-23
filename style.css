@@ -39,7 +39,7 @@
 }
 
 .navbar-solid {
-    background-color: black; /* Couleur de fond solide */
+    background-color: black;
     opacity: 0.8;
 }
   
@@ -116,10 +116,11 @@ input[type=checkbox] {
     display: none;
     font-size: 24px;
     user-select: none;
+    cursor: pointer;
   }
   
   /* APPLYING MEDIA QUERIES */
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
    .menu {
       display:none;
       position: absolute;
@@ -128,10 +129,11 @@ input[type=checkbox] {
       left: 0;
       text-align: center;
       padding: 16px 0;
+      border-top: 1px solid white;
     }
   
     .menu li:hover {
-      display: inline-block;
+      display: block;
       background-color:rgb(78, 75, 75);
       transition: 0.3s ease;
     }
@@ -146,6 +148,10 @@ input[type=checkbox] {
   
     .hamburger {
       display: block;
+    }
+
+    .logo{
+        display: none;
     }
   
     .dropdown {
@@ -327,7 +333,10 @@ main h1 div:last-of-type span {
     transition: 0.4s;
     height: 600px;
 }
-
+.service-card :hover{
+    flex: 2;
+    
+}
 .service-card > * {
     grid-area: 1/1;
     transition: 0.4s;
