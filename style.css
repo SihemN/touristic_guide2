@@ -330,7 +330,7 @@ main h1 div:last-of-type span {
     font-family:'Roboto';
     font-size: 3rem;
     font-weight: bold;
-    color: #0000;
+    color: white;
     padding: 0.75rem;
     background: var(--c, #0009);
     clip-path: inset(0 var(--_i, 100%) 0 0);
@@ -352,14 +352,7 @@ main h1 div:last-of-type span {
     justify-content: center;
     font-size: 1.5rem;
     color: white;
-    background: var(--c, #0009);
-    clip-path: inset(0 var(--_i, 100%) 0 0);
-    -webkit-mask:
-        linear-gradient(#000 0 0),
-        linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    -webkit-mask-clip: text, padding-box;
-    margin: -1px;
+
 }
 
 .service-card:hover p {
