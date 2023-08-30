@@ -210,47 +210,6 @@ to {background-position: -100px 0px;background-size:2500px;}
 }
 
 
-.center2{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: 3px;
-}
-
-.center2 {
-  background-image: url(images/kym-ellis-aF1NPSnDQLw-unsplash.jpg);
-background-size:cover;
-      -webkit-animation: slidein 50s;
-      animation: slidein 50s;
-
-      -webkit-animation-fill-mode: forwards;
-      animation-fill-mode: forwards;
-
-      -webkit-animation-iteration-count: infinite;
-      animation-iteration-count: infinite;
-
-      -webkit-animation-direction: alternate;
-      animation-direction: alternate;              
-}
-
-@-webkit-keyframes slidein {
-from {background-position: top; background-size:3000px; }
-to {background-position: -100px 0px;background-size:2500px;}
-}
-
-@keyframes slidein {
-from {background-position: top;background-size:3000px; }
-to {background-position: -100px 0px;background-size:2500px;}
-
-}
-
-
 
 /* ANIATION TEXTE h1*/
 
@@ -259,7 +218,7 @@ h1 {
     color: white;
     text-shadow: black 0.1em 0.1em 0.2em;
     font-family:'Roboto';
-    font-size:60px;
+    font-size:100px;
     padding-top:40vh;
     height:100vh;
     overflow:hidden;
@@ -267,25 +226,29 @@ h1 {
     perspective: 3000;
     transform: translate3d(0,0,0);
 }
+
+h1 div span{
+  display: inline-block;
+}
   
-main h1 div {
-    display:block;
+ h1 div {
+    display:flex;
     overflow:hidden;
     white-space:wrap;
 }
   
-main h1 div:first-of-type {
+h1 div:first-of-type {
     animation: showup 20s ;
 }
   
-main h1 div:last-of-type {
+ h1 div:last-of-type {
     width:100%;
     animation: reveal 20s infinite;
 }
   
-main h1 div:last-of-type span {
-    margin-left:0px;
-    margin-right: 0px;
+h1 div:last-of-type span {
+    display: flex;
+    margin: 0px;
     animation: slidein 20s infinite;
 }
 
@@ -401,8 +364,17 @@ main h1 div:last-of-type span {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: white;
+    padding: 0.75rem;
+    background: var(--c, #0009);
+    clip-path: inset(0 var(--_i, 100%) 0 0);
+    -webkit-mask:
+        linear-gradient(#000 0 0),
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    -webkit-mask-clip: text, padding-box;
+    margin: -1px;
 
 }
 
@@ -459,6 +431,63 @@ main h1 div:last-of-type span {
     .service-card img {
         height: 300px;
     }
+}
+
+/*------------- CENTER 2 -----------*/
+
+
+.center2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 3px;
+}
+
+.center2 {
+  background-image: url(images/kym-ellis-aF1NPSnDQLw-unsplash.jpg);
+background-size:cover;
+      -webkit-animation: slidein 50s;
+      animation: slidein 50s;
+
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;
+
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+
+      -webkit-animation-direction: alternate;
+      animation-direction: alternate;              
+}
+
+@-webkit-keyframes slidein {
+from {background-position: top; background-size:3000px; }
+to {background-position: -100px 0px;background-size:2500px;}
+}
+
+@keyframes slidein {
+from {background-position: top;background-size:3000px; }
+to {background-position: -100px 0px;background-size:2500px;}
+
+}
+
+.center2 h1{
+  text-align:center;
+  color: white;
+  text-shadow: black 0.0em 0.1em 0.2em;
+  font-family:'Roboto';
+  font-size:150px;
+  padding-top:40vh;
+  height:100vh;
+  overflow:hidden;
+  backface-visibility: hidden;
+  perspective: 3000;
+  transform: translate3d(0,0,0);
 }
 
 /* -------- NOTICE -----------------*/
