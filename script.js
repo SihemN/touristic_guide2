@@ -12,3 +12,24 @@ window.addEventListener('scroll', () => {
             navbar.style.opacity ="1" ;
     }
 });
+
+// NOTICE
+
+const stars = document.querySelectorAll('.star');
+
+stars.forEach((star, index) => {
+  star.addEventListener('click', () => {
+    stars.forEach((s, i) => {
+      if (i <= index) {
+        s.classList.add('selected');
+        s.style.color = 'gold';
+      } else {
+        s.classList.remove('selected');
+        s.style.color = 'white';
+      }
+    });
+  });
+});
+
+
+  

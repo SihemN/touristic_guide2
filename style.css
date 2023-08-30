@@ -210,11 +210,53 @@ to {background-position: -100px 0px;background-size:2500px;}
 }
 
 
+.center2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 3px;
+}
+
+.center2 {
+  background-image: url(images/kym-ellis-aF1NPSnDQLw-unsplash.jpg);
+background-size:cover;
+      -webkit-animation: slidein 50s;
+      animation: slidein 50s;
+
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;
+
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+
+      -webkit-animation-direction: alternate;
+      animation-direction: alternate;              
+}
+
+@-webkit-keyframes slidein {
+from {background-position: top; background-size:3000px; }
+to {background-position: -100px 0px;background-size:2500px;}
+}
+
+@keyframes slidein {
+from {background-position: top;background-size:3000px; }
+to {background-position: -100px 0px;background-size:2500px;}
+
+}
+
+
+
 /* ANIATION TEXTE h1*/
 
 h1 {
     text-align:center;
-    color: #e6c068;
+    color: white;
     text-shadow: black 0.1em 0.1em 0.2em;
     font-family:'Roboto';
     font-size:60px;
@@ -418,6 +460,45 @@ main h1 div:last-of-type span {
         height: 300px;
     }
 }
+
+/* -------- NOTICE -----------------*/
+
+.comments-section{
+  margin: 0;
+  min-height: 100vh;
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column; /* Aligner les éléments verticalement */
+  align-items: center; /* Centrer horizontalement */
+  color: white;
+  background-color:black;
+  text-align: center;
+}
+
+/* ----------- STARS---------------*/
+.note {
+  width: 200px;
+  background-color: black;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.rating {
+  margin-top: 10px;
+}
+
+.star {
+  font-size: 30px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.star:hover,
+.star.selected {
+  transform: scale(1.2);
+  transition: transform 0.2s;
+}
+
 
   /* --- FOOTER-----*/
 
