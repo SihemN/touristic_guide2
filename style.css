@@ -30,11 +30,11 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-    transition: background-color 0.3s, opacity 0.3s; /* Ajoute une transition fluide */
+    transition: background-color 0.3s, opacity 0.3s; 
 }
 
 .navbar.transparent {
-    background-color: rgba(0, 0, 0, 0.5); /* Opacité réduite */
+    background-color: rgba(0, 0, 0, 0.5); 
     opacity: 1;
 }
 
@@ -168,111 +168,108 @@ input[type=checkbox] {
 
 .center {
     background-image: url(images/voyage-viticole-scaled.jpg);
-  background-size:cover;
-        -webkit-animation: slidein 50s;
-        animation: slidein 50s;
-
-        -webkit-animation-fill-mode: forwards;
-        animation-fill-mode: forwards;
-
-        -webkit-animation-iteration-count: infinite;
-        animation-iteration-count: infinite;
-
-        -webkit-animation-direction: alternate;
-        animation-direction: alternate;              
+    background-size: cover;        
 }
-
-@-webkit-keyframes slidein {
-from {background-position: top; background-size:3000px; }
-to {background-position: -100px 0px;background-size:2500px;}
-}
-
-@keyframes slidein {
-from {background-position: top;background-size:3000px; }
-to {background-position: -100px 0px;background-size:2500px;}
-
-}
-
-
-
-.center
-{
+.center {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: 3px;
+  animation: slidein-background 50s infinite alternate;
 }
-
-
-
-/* ANIATION TEXTE h1*/
 
 h1 {
-    text-align:center;
-    color: white;
-    text-shadow: black 0.1em 0.1em 0.2em;
-    font-family:'Roboto';
-    font-size:100px;
-    padding-top:40vh;
-    height:100vh;
-    overflow:hidden;
-    backface-visibility: hidden;
-    perspective: 3000;
-    transform: translate3d(0,0,0);
+  text-align: center;
+  color: white;
+  text-shadow: black 0.1em 0.1em 0.2em;
+  font-family: 'Roboto';
+  font-size: 100px;
+  padding-top: 40vh;
+  height: 100vh;
+  overflow: hidden;
 }
 
-h1 div span{
-  display: inline-block;
+@keyframes slidein-background {
+  from {
+    background-position: top;
+    background-size: 3000px;
+  }
+  to {
+    background-position: -100px 0px;
+    background-size: 2500px;
+  }
 }
-  
- h1 div {
-    display:flex;
-    overflow:hidden;
-    white-space:wrap;
+
+@keyframes reveal-text {
+  0% {
+    opacity: 0;
+    width: 0px;
+  }
+  20% {
+    opacity: 1;
+    width: 0px;
+  }
+  30% {
+    width: 355px;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 355px;
+  }
 }
-  
+
+@keyframes showup {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 h1 div:first-of-type {
-    animation: showup 20s ;
-}
-  
- h1 div:last-of-type {
-    width:100%;
-    animation: reveal 20s infinite;
-}
-  
-h1 div:last-of-type span {
-    display: flex;
-    margin: 0px;
-    animation: slidein 20s infinite;
+  animation: showup 20s;
 }
 
-  @keyframes showup {
-      0% {opacity:0;}
-      20% {opacity:1;}
-      80% {opacity:1;}
-      100% {opacity:0;}
+h1 div:last-of-type {
+  width: 100%;
+  animation: reveal-text 20s infinite;
+}
+
+.waviy {
+  margin:50px;
+  text-align: center;
+  position: relative;
+  white-space: nowrap;
+}
+.waviy span {
+  display: inline-block;
+  font-size: 60px;
+  color: white;
+  animation: flip 5s 3;
+  animation-delay: calc(.2s * var(--i))
+}
+@keyframes flip {
+  0%,80% {
+    transform: rotateY(360deg) 
   }
-  
-  @keyframes slidein {
-      0% { margin-left:-800px; }
-      20% { margin-left:-800px; }
-      35% { margin-left:0px; }
-      100% { margin-left:0px; }
+}
+@media screen and (max-width: 768px) { /* Ajustez la largeur maximale selon vos besoins */
+  .waviy {
+    white-space: normal; /* Permet au texte de passer à la ligne si nécessaire */
   }
-  
-  @keyframes reveal {
-      0% {opacity:0;width:0px;}
-      20% {opacity:1;width:0px;}
-      30% {width:355px;}
-      80% {opacity:1;}
-      100% {opacity:0;width:355px;}
-  }
+}
+
 /*--SEVICE SECTION H2 ANIMATION--*/
 
 .services-section h2 {
@@ -281,7 +278,7 @@ h1 div:last-of-type span {
     color: white;
     text-shadow: black 0.1em 0.1em 0.2em;
     font-family: 'Roboto';
-    animation: fadeInUp 2s ease-in-out; /* Ajoutez l'animation ici */
+    animation: fadeInUp 3s ease-in-out;
 }
 
 @keyframes fadeInUp {
@@ -438,15 +435,11 @@ h1 div:last-of-type span {
 
 .center2{
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: 3px;
+  animation: slidein-background 50s infinite alternate;
 }
 
 .center2 {
@@ -474,20 +467,6 @@ to {background-position: -100px 0px;background-size:2500px;}
 from {background-position: top;background-size:3000px; }
 to {background-position: -100px 0px;background-size:2500px;}
 
-}
-
-.center2 h1{
-  text-align:center;
-  color: white;
-  text-shadow: black 0.0em 0.1em 0.2em;
-  font-family:'Roboto';
-  font-size:150px;
-  padding-top:40vh;
-  height:100vh;
-  overflow:hidden;
-  backface-visibility: hidden;
-  perspective: 3000;
-  transform: translate3d(0,0,0);
 }
 
 /* -------- NOTICE -----------------*/
